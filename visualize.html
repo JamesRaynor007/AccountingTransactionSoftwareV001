@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transaction Visualization</title>
+  <link rel="stylesheet" href="Css/visualize.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Transaction Visualization</h1>
+      <p>Filter and sort by client, date range, amount, type, account, and description</p>
+    </header>
+
+    <!-- Return button -->
+    <button id="backBtn" class="btn"><i class="fas fa-arrow-left"></i> Return</button>
+
+    <div class="controls">
+      <!-- File selection -->
+      <label>Load Consolidated (transactions.json):</label>
+      <input type="file" id="transactionsFile" accept=".json" />
+      <button id="loadBtn" class="btn"><i class="fas fa-database"></i> Load Consolidated</button>
+
+      <label>Load Action Log (actions.log.json):</label>
+      <input type="file" id="logFile" accept=".json" />
+      <button id="loadLogBtn" class="btn"><i class="fas fa-file-alt"></i> Load Log</button>
+
+      <!-- Filters -->
+      <input type="text" id="filterClient" placeholder="Filter by client" />
+      <input type="date" id="filterDateStart" placeholder="Start date" />
+      <input type="date" id="filterDateEnd" placeholder="End date" />
+      <input type="number" id="filterAmount" placeholder="Minimum amount" />
+
+      <select id="filterType">
+        <option value="">All</option>
+        <option value="credit">Credits (positive)</option>
+        <option value="debit">Debits (negative)</option>
+      </select>
+
+      <input type="text" id="filterAccount" placeholder="Filter by account" />
+      <input type="text" id="filterDescription" placeholder="Filter by description" />
+
+      <button id="applyFiltersBtn" class="btn"><i class="fas fa-filter"></i> Apply Filters</button>
+      <button id="resetFiltersBtn" class="btn"><i class="fas fa-trash-alt"></i> Reset</button>
+      <button id="sortAmountAscBtn" class="btn"><i class="fas fa-sort-numeric-up"></i> Sort Amount ↑</button>
+      <button id="sortAmountDescBtn" class="btn"><i class="fas fa-sort-numeric-down"></i> Sort Amount ↓</button>
+      <button id="sortDateAscBtn" class="btn"><i class="fas fa-calendar-plus"></i> Sort Date ↑</button>
+      <button id="sortDateDescBtn" class="btn"><i class="fas fa-calendar-minus"></i> Sort Date ↓</button>
+    </div>
+
+    <h2>Transactions</h2>
+    <div id="transactionsView" class="kpi-grid"></div>
+
+    <h2>Action Log</h2>
+    <div id="logView" class="kpi-grid"></div>
+  </div>
+
+  <script src="scripts/visualize.js"></script>
+  <!-- Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script>
+    document.getElementById('backBtn').addEventListener('click', () => {
+      window.history.back();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Incremental Update</title>
+  <link rel="stylesheet" href="Css/update.css" />
+  <!-- Load libraries from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/papaparse/5.4.1/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Incremental Update</h1>
+      <p>Load consolidated base and apply new transactions</p>
+    </header>
+
+    <!-- Return button -->
+    <button id="returnBtn" class="btn"><i class="fas fa-arrow-left"></i> Return</button>
+
+    <div class="controls">
+      <!-- Load base JSON -->
+      <label for="baseFile">Base File (JSON):</label>
+      <input type="file" id="baseFile" accept=".json" />
+      <button id="loadBaseBtn" class="btn"><i class="fas fa-database"></i> Load Base</button>
+
+      <!-- Load incremental file -->
+      <label for="updateFile">Incremental File (CSV/XLSX):</label>
+      <input type="file" id="updateFile" accept=".csv,.xlsx" />
+      <button id="updateBtn" class="btn"><i class="fas fa-sync-alt"></i> Update Consolidated</button>
+
+      <!-- Downloads -->
+      <button id="downloadConsolidatedBtn" class="btn"><i class="fas fa-download"></i> Download Consolidated</button>
+      <button id="downloadLogBtn" class="btn"><i class="fas fa-file-alt"></i> Download Log</button>
+    </div>
+
+    <div id="status" class="status">Waiting for base file...</div>
+    <div id="logTable" class="kpi-grid"></div>
+  </div>
+
+  <!-- Script at the end of body -->
+  <script src="scripts/update.js"></script>
+  <!-- Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>

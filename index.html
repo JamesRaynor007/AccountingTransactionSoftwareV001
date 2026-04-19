@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transaction Management</title>
+  <link rel="stylesheet" href="Css/index.css">
+  <style>
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Top bar -->
+    <div class="top-bar">
+      <header>
+        <h1>Accounting Transaction Management</h1>
+        <p>Select the interface you want to use</p>
+
+        <!-- Futuristic image below the title -->
+        <img src="/images/1.png" alt="Futuristic office with holograms" class="hero-image">
+      </header>
+
+      <div class="top-right">
+        <!-- Current time -->
+        <section class="clock">
+          <h2>Current Time</h2>
+          <p id="currentTime"></p>
+        </section>
+
+        <!-- Login -->
+        <section class="login">
+          <h2>Login</h2>
+          <form>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <!-- Mosaic options -->
+    <nav class="menu mosaic">
+      <ul>
+        <li><a href="load.html">Transaction Upload<br>(CSV/XLSX)</a></li>
+        <li><a href="update.html">Incremental Update<br>of Consolidated Data</a></li>
+        <li><a href="visualize.html">Transaction Visualization<br>and Filters</a></li>
+      </ul>
+    </nav>
+
+    <!-- Bottom bar -->
+    <div class="bottom-bar">
+      <!-- Contact -->
+      <section class="contact">
+        <h2>Contact Information</h2>
+        <p>Email: <a href="mailto:contacto@transacciones.com">contacto@transacciones.com</a></p>
+        <p>Phone: +54 11 5555-5555</p>
+      </section>
+
+      <!-- Message -->
+      <section class="message">
+        <h2>Information</h2>
+        <p>Project deployed on GitHub Pages · Version control in <code>docs/changelog.md</code></p>
+      </section>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("currentTime").textContent = now.toLocaleString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
